@@ -1,0 +1,42 @@
+using System;
+
+// Define the IQuittable interface with a Quit method
+public interface IQuittable
+{
+    void Quit(); // Method signature for quitting
+}
+
+// Employee class that implements the IQuittable interface
+public class Employee : IQuittable
+{
+    public string Name { get; set; } // Property to hold the employee's name
+
+    // Constructor to initialize the employee's name
+    public Employee(string name)
+    {
+        Name = name;
+    }
+
+    // Implementation of the Quit method from the IQuittable interface
+    public void Quit()
+    {
+        // Print a message indicating that the employee has quit
+        Console.WriteLine($"{Name} has quit the job.");
+    }
+}
+
+// Main program class
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Create an Employee object
+        Employee employee = new Employee("John Doe");
+        
+        // Create an IQuittable reference that points to the Employee object
+        IQuittable quitableEmployee = employee;
+
+        // Call the Quit method on the IQuittable reference
+        quitableEmployee.Quit(); // This will invoke the Quit method in the Employee class
+    }
+}
